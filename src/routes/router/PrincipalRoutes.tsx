@@ -5,18 +5,24 @@ import { Home } from '../../pages/home/Home'
 import { Services } from '../../pages/services/Services'
 import { Contact } from '../../pages/contact/Contact'
 import { AuthLayout } from '../../layouts/auth/AuthLayout'
+import { useState } from 'react'
 
 export const PrincipalRoutes = () => {
+  // Por ahora 'passenger' por defecto, pero esto debería venir del login/contexto
+  const [userType, setUserType] = useState<'passenger' | 'driver'>('passenger')
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path = "/auth" element = { <AuthLayout /> }>
-          {/* <Route path = "login" element = { <LoginPage /> }/> */}
+        <Route path="/auth" element={<AuthLayout />}>
+          {/* <Route path="login" element={<LoginPage />}/> */}
         </Route>
-        <Route path = "/" element = { <MainLayout /> }>
-          <Route path = "home-passenger" element = { <Home /> }/>
-          <Route path = "profile-passenger" element = { <Services /> }/>
-          <Route path = "contact" element = { <Contact /> }/>
+        <Route path="/" element={<MainLayout userType={userType} />}>
+          <Route path="home-passenger" element={<Home />} />
+          <Route path="profile-passenger" element={<Services />} />
+          <Route path="home-driver" element={<Home />} /> {/* Ruta para drivers */}
+          <Route path="profile-driver" element={<Services />} /> {/* Ruta para drivers */}
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>
