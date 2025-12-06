@@ -1,0 +1,57 @@
+.trip-info-container {
+    display: flex;
+    height: 20%;
+    width: 100%;
+}
+
+.info-container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+
+}
+
+.info-item,
+.info-value {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.info-item {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    
+    .info-container {
+        gap: 0.4em 0.8em;
+    }
+
+    .info-item,
+    .info-value {
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .header {
+        font-size: 3em;
+    }
+
+    .title-component {
+        font-size: 1.8em;
+    }
+    
+    .info-container {
+        gap: 0.4em 0.8em;
+    }
+
+    .info-item,
+    .info-value {
+        font-size: 1.2em;
+    }
+}
