@@ -1,0 +1,19 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.home-container-items {
+    height: 50%;
+}
+
+.title-component {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding: 0.3em;
+    color: #7a43d3;
+    font-size: 1.3em;
+}
