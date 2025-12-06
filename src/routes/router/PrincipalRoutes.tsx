@@ -6,6 +6,7 @@ import { Services } from '../../pages/services/Services'
 import { Contact } from '../../pages/contact/Contact'
 import { AuthLayout } from '../../layouts/auth/AuthLayout'
 import { useState } from 'react'
+import { ConfirmationTrip } from '../../pages/confirmation-trip/ConfirmationTrip'
 
 export const PrincipalRoutes = () => {
   // Por ahora 'passenger' por defecto, pero esto debería venir del login/contexto
@@ -19,6 +20,7 @@ export const PrincipalRoutes = () => {
         </Route>
         <Route path="/" element={<MainLayout userType={userType} />}>
           <Route path="home-passenger" element={<Home />} />
+          <Route path="confirmation-trip" element={<ConfirmationTrip />} />
           <Route path="profile-passenger" element={<Services />} />
           <Route path="home-driver" element={<Home />} /> {/* Ruta para drivers */}
           <Route path="profile-driver" element={<Services />} /> {/* Ruta para drivers */}
