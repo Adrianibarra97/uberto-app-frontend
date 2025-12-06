@@ -15,12 +15,14 @@ export const ButtonComponent = ({
   children = 'Search'
 }: ButtonComponentProps) => {
   return (
-    <button
+    <div className='button-container'>
+      <button
       type={type}
       className={`button-component ${className}`}
       onClick={onClick}
     >
       {children}
     </button>
+    </div> 
   )
 }

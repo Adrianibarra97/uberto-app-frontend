@@ -1,7 +1,15 @@
+.division-container {
+  display: flex;
+  height: 2%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .division {
   display: flex;
-  margin-top: 1em;
-  height: 1px;
+  width: 90%;
+  height: 1%;
   background: #bdbdbd;
 }
 

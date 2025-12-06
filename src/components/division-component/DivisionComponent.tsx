@@ -2,6 +2,9 @@ import './DivisionComponent.css'
 
 export const DivisionComponent = () => {
   return (
-    <hr className="division" aria-hidden="true" />
+    <div className='division-container'>
+        <hr className="division" aria-hidden="true" />
+    </div>
+    
   )
 }

@@ -35,3 +35,8 @@
 .scroll--style::-webkit-scrollbar-thumb {
 	background-color: var(--footer-color);
 }
+
+.main-layout {
+  height: 86vh;
+  width: 100vw;
+}

@@ -4,20 +4,23 @@ import './CardComponent.css'
 export const CardComponent = () => {
   return (
     <>
-    <div className='card-container'>
+    <div className='card'>
       <div className='card-header-container'>
-        <p>AC 822 WC</p>
-        <FaStar className='card-item'/>5
+        <p className='card-item'>AC 822 WC</p>
+        <div className='card-item card-rating'>
+          <FaStar />
+          <p>5</p>
+        </div>
+        
       </div>
         
-      <div>
-
-        <div>
-          <p>Ivan de Piñeda</p>
+      <div className='card-middle-container'>
+        <div className=''>
+          <p>$2500</p><p>Ivan de Piñeda</p>
           <p>Fiat Cronos | 2018</p>
           <p>Valor $5670</p>
         </div>
-
+        
         <figure>
           <img src="" alt="" />
         </figure>

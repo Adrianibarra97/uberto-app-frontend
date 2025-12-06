@@ -4,11 +4,19 @@ import './GridComponent.css'
 export const GridComponent = () => {
   
   return (
-    <>
     <div className='grid-container'>
         <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
     </div>
-    
-    </>
   )
 }
