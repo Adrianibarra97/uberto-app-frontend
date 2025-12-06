@@ -1,0 +1,9 @@
+.title-component {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    align-items:center;
+    justify-content: center;
+    color: #7a43d3;
+    font-size: 1.3em;
+}
