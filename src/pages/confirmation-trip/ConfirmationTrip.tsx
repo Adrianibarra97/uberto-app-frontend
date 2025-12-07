@@ -1,3 +1,4 @@
+import { DivisionComponent } from '../../components/division-component/DivisionComponent'
 import { TitleComponent } from '../../components/title-component/TitleComponent'
 import './ConfirmationTrip.css'
 
@@ -23,6 +24,8 @@ export const ConfirmationTrip = () => {
           <p className='info-value'>1</p>
         </div>
       </div>
+      <DivisionComponent  />
+      <TitleComponent text='Premium Driver' />
     </div>
   )
 }
