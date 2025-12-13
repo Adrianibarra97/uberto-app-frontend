@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { MainLayout } from '../../layouts/main/MainLayout'
 import { Home } from '../../pages/home/Home'
-import { Services } from '../../pages/services/Services'
-import { Contact } from '../../pages/contact/Contact'
 import { AuthLayout } from '../../layouts/auth/AuthLayout'
-import { ConfirmationTrip } from '../../pages/confirmation-trip/ConfirmationTrip'
+import { ConfirmationTripPage } from '../../pages/confirmation-trip/ConfirmationTripPage'
+import { ProfileLayout } from '../../layouts/Profile/ProfileLayout'
+import { ProfileTripsPage } from '../../pages/profile/profileTrips/ProfileTripsPage'
+import { ProfileQualificationsPage } from '../../pages/profile/profileQualifications/ProfileQualificationsPage'
+import { ProfileInfoPage } from '../../pages/profile/profileInfo/ProfileInfoPage'
+import { ErrorPage } from '../../pages/error/ErrorPage'
 
 export const PrincipalRoutes = () => {
 
@@ -14,14 +17,21 @@ export const PrincipalRoutes = () => {
         <Route path="/auth" element={<AuthLayout />}>
           {/* <Route path="login" element={<LoginPage />}/> */}
         </Route>
+
         <Route path="/" element={<MainLayout />}>
           <Route path="home-passenger" element={<Home />} />
-          <Route path="confirmation-trip" element={<ConfirmationTrip />} />
-          <Route path="profile-passenger" element={<Services />} />
-          <Route path="home-driver" element={<Home />} /> {/* Ruta para drivers */}
-          <Route path="profile-driver" element={<Services />} /> {/* Ruta para drivers */}
-          <Route path="contact" element={<Contact />} />
+          <Route path="confirmation-trip" element={<ConfirmationTripPage />} />
+          <Route path="home-driver" element={<Home />} />
+
+          <Route path="profile-passenger" element={<ProfileLayout />}>
+            <Route path="info" element={<ProfileInfoPage />} />
+            <Route path="trips" element={<ProfileTripsPage />} />
+            <Route path="qualifications" element={<ProfileQualificationsPage />} />
+          </Route>
+          
+          <Route path = "*" element = { <ErrorPage /> } />
         </Route>
+
       </Routes>
     </BrowserRouter>
   )

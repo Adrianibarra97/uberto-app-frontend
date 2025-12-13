@@ -2,10 +2,10 @@ import { DivisionComponent } from '../../components/division-component/DivisionC
 import { GridReview } from '../../components/grid-review/GridReview'
 import { InfoTrip } from '../../components/info-trip/InfoTrip'
 import { TitleComponent } from '../../components/title-component/TitleComponent'
-import './ConfirmationTrip.css'
+import './ConfirmationTripPage.css'
 
 
-export const ConfirmationTrip = () => {
+export const ConfirmationTripPage = () => {
 
   const infoTripData = new Map<string,string>([
     ["Origin","Calle falsa 333"],
