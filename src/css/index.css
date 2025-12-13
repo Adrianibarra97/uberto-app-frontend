@@ -37,7 +37,8 @@
 }
 
 .main-layout {
+  display: flex;
+  flex-direction: column;
   height: 86vh;
   width: 100vw;
-  background-color: rgb(226, 226, 226);
 }

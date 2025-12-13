@@ -1,0 +1,11 @@
+.grid-review-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    overflow-y: auto;
+    align-content: start;
+    justify-items: center;
+    border: 2px solid green;
+}
