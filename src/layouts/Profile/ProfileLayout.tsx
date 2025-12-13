@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom'
 import '../../css/index.css'
 import '../Profile/ProfileLayout.css'
 import { DivisionComponent } from '../../components/division-component/DivisionComponent'
+import messiImage from '../../assets/messi.png'
 
 export const ProfileLayout = () => {
   return (
@@ -10,23 +11,23 @@ export const ProfileLayout = () => {
     <div className='main-layout'>
       <div className='profile-header-container'>
         <figure className='figure-profile-container'>
-          <img src="src\assets\messi.png" alt="" className='profile_card_image'/>
+          <img src={messiImage} alt="messi" className='profile_card_image'/>
         </figure>
         <nav className='profile-nav-container'>
           <ul className='profile-ul-container'>
             <li>
-              <Link to='profile-passenger/info' aria-label="UserInfo">
+              <Link to='info' aria-label="UserInfo">
                 <p>Info</p>
               </Link>
             </li>
             <li>
-              <Link to='profile-passenger/trips' aria-label="InfoTrip">
+              <Link to='trips' aria-label="InfoTrip">
                 <p>Trips</p>
               </Link>
             </li>
             <li>
-              <Link to='profile-passenger/info' aria-label="Infoqualifications">
-                <p>qualifications</p>
+              <Link to='info' aria-label="Infoqualifications">
+                <p>Qualifications</p>
               </Link>
             </li>
           </ul>
