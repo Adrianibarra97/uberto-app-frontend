@@ -7,11 +7,28 @@ export const ProfileLayout = () => {
     <div className="main-layout">
       <div className="profile-header-container">
         <figure className="figure-profile-container">
-          <img
-            src={messiImage}
-            alt="messi"
-            className="profile_card_image"
-          />
+          <label className="profile-image-wrapper">
+            <img
+              src={messiImage}
+              alt="messi"
+              className="profile_card_image"
+            />
+
+            <i className="fa-solid fa-camera camera-icon"></i>
+
+            <input
+              type="file"
+              accept="image/*"
+              className="profile-image-input"
+              onChange={(e) => {
+                const file = e.target.files?.[0]
+                if (file) {
+                  const url = URL.createObjectURL(file)
+                  console.log(url)
+                }
+              }}
+            />
+          </label>
         </figure>
         <nav className="profile-nav-container">
           <ul className="profile-ul-container">
