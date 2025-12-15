@@ -1,6 +1,6 @@
 .profile-header-container {
     display: flex;
-    height: 20vh;
+    height: 15vh;
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -27,19 +27,40 @@
 }
 
 .profile-nav-container {
-    height: 50%;
-    width: 100%;
-    
+  height: 50%;
+  width: 80%;
+  box-shadow: inset 0 -2px 0 #bdbdbd;
 }
 
 .profile-ul-container {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.profile-ul-container li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.profile-ul-container p {
+  margin: 0;
 }
 
 .profile-ul-container a {
-    text-decoration: none;
-    color: grey;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: grey;
+}
+
+.profile-ul-container a:hover {
+  color: #0c9fe4;
+}
+
+.profile-ul-container a.active {
+  color: #0c9fe4;
+  box-shadow: inset 0 -2px 0 #0c9fe4;
 }

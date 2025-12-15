@@ -1,44 +1,40 @@
-import { Link, Outlet } from 'react-router-dom'
-
-import '../../css/index.css'
-import '../Profile/ProfileLayout.css'
-import { DivisionComponent } from '../../components/division-component/DivisionComponent'
+import { NavLink, Outlet } from 'react-router-dom'
 import messiImage from '../../assets/messi.png'
+import '../Profile/ProfileLayout.css'
 
 export const ProfileLayout = () => {
   return (
-
-    <div className='main-layout'>
-      <div className='profile-header-container'>
-        <figure className='figure-profile-container'>
-          <img src={messiImage} alt="messi" className='profile_card_image'/>
+    <div className="main-layout">
+      <div className="profile-header-container">
+        <figure className="figure-profile-container">
+          <img
+            src={messiImage}
+            alt="messi"
+            className="profile_card_image"
+          />
         </figure>
-        <nav className='profile-nav-container'>
-          <ul className='profile-ul-container'>
+        <nav className="profile-nav-container">
+          <ul className="profile-ul-container">
             <li>
-              <Link to='info' aria-label="UserInfo">
+              <NavLink to="info">
                 <p>Info</p>
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to='trips' aria-label="InfoTrip">
+              <NavLink to="trips">
                 <p>Trips</p>
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to='info' aria-label="Infoqualifications">
+              <NavLink to="qualifications">
                 <p>Qualifications</p>
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
-        <DivisionComponent />
       </div>
+
       <Outlet />
     </div>
-     
-
-    
-
   )
 }
