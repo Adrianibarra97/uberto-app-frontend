@@ -1,0 +1,162 @@
+.profile-container-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 74vh;
+}
+
+.form-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60%;
+  border: 2px solid blue;
+}
+
+.form--info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  color: #4702b6;
+  gap: 0.3em;
+}
+
+.form--info-item label {
+  width: 100%;
+  padding-left: 0.8em;
+}
+
+.form--info-item input {
+  width: 90%;
+  height: 1.5em;
+  border-radius: 0.25em;
+  border: 1px solid #bdbdbd;
+  color: #4702b6;
+  font-size: 1em;
+  text-align: center;
+  outline: none;
+}
+
+.icon-input-container {
+  position: relative;
+  width: 90%;
+}
+
+.icon-input-container input {
+  width: 100%;
+  height: 1.5em;
+}
+
+.icono-input {
+  position: absolute;
+  right: 0.8em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4702b6;
+  font-size: 1em;
+  pointer-events: none;
+}
+
+.profile-button-container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.3em;
+}
+
+.profile-button {
+  width: 19em;
+  height: 2.5em;
+  border-radius: 0.4em;
+  border: none;
+  background-color: #4702b6;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.profile-section-divider {
+  width: 90%;
+  border: 1px solid  #dcdcdc;
+  margin-top: 0.5em;
+}
+
+.available-money-section {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+}
+
+.avaiable-money-header {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.3em;
+
+}
+.p-money-attribute {
+  font-size: 1.1em;
+  color: #4702b6;
+  font-weight: bolder;
+}
+
+.friends-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 40%;
+  overflow-y: scroll;
+  border: 2px solid red;
+}
+
+.friends-header {
+  display: flex;
+  height: 2em;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.8em;
+}
+
+.friends-title {
+  font-size: 1.1em;
+  color: #5f24be;
+  font-weight: bold;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1em;
+  width: 1em;
+  border-radius: 30%;
+  border: none;
+  background-color: #4702b6;
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
+.friend-item-container {
+  display: flex;
+  height: 4.3em;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid green;
+}
+
+.friend-figure-container {
+  display: flex;
+  height: 2.5em;
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #5f24be;
+}
+

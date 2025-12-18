@@ -50,7 +50,6 @@ export const ProfileLayout = () => {
           </ul>
         </nav>
       </div>
-
       <Outlet />
     </div>
   )
