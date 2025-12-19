@@ -1,5 +1,6 @@
 import { FaStar } from 'react-icons/fa6'
 import './ReviewComponent.css'
+import messiPhotho from '../../assets/messi.png'
 
 export const ReviewComponent = () => {
   return (
@@ -8,7 +9,7 @@ export const ReviewComponent = () => {
        <div className='header-review-container'>
 
           <figure className='figure-review-container'>
-          <img src="src\assets\messi.png" alt="" className='review_card_image'/>
+          <img src={messiPhotho} alt="" className='review_card_image'/>
           </figure> 
 
         <div className='info-review-container'>

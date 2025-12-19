@@ -1,12 +1,17 @@
 .grid-review-container {
     display: grid;
     grid-template-columns: 1fr;
-    height: 42%;
+    height: 100%;
     width: 100%;
-    overflow-y: scroll;
     place-items: center;
     padding: 1em 0em;
     gap: 0.5em;
+    overflow-y: scroll;
+}
+
+.grid-review-scroll {
+    height: 42%;
+    overflow-y: auto;
 }
 
 @media screen and (min-width: 768px) {

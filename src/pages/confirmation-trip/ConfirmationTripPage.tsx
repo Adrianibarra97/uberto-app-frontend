@@ -37,7 +37,7 @@ export const ConfirmationTripPage = () => {
           <InfoTrip map = {infoDriverData} />
       </div>
 
-      <GridReview />
+      <GridReview scrollable />
       
       <div className='buttons-container'>
         <button className='button-component button-review-component button-color'>Back</button>  
