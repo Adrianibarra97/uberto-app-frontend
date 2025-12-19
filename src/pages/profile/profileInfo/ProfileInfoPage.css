@@ -61,3 +61,25 @@
   border: 2px solid #882323;
 }
 
+.trash-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #4702b6;
+  color: #ffffff;
+  border-radius: 30%;
+  font-size: 1em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.trash-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(71, 2, 182, 0.3);
+}
+
+.trash-icon:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 4px rgba(71, 2, 182, 0.2);
+}
