@@ -2,7 +2,11 @@ import { FaStar } from 'react-icons/fa6'
 import './ReviewComponent.css'
 import messiPhotho from '../../assets/messi.png'
 
-export const ReviewComponent = () => {
+interface ReviewComponentProps {
+  deletable?: boolean
+}
+
+export const ReviewComponent = ({ deletable = false }: ReviewComponentProps) => {
   return (
 
     <div className='card-review'>
@@ -22,6 +26,13 @@ export const ReviewComponent = () => {
           <FaStar className='score-icon' />
           <p className='score-value'>5</p>
         </div>
+
+        {deletable && (
+        <i
+          className="fa-solid fa-trash trash-icon"
+          onClick={() => console.log('delete review')}
+        />
+      )}
 
        </div>
       <div className='comment-container'>

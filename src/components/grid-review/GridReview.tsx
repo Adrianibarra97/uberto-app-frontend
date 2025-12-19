@@ -4,9 +4,10 @@ import './GridReview.css'
 
 interface GridReviewProps {
   scrollable?: boolean
+  deletable?: boolean
 }
 
-export const GridReview = ({ scrollable = false }: GridReviewProps) => {
+export const GridReview = ({ scrollable = false,deletable = false }: GridReviewProps) => {
   
   return (
     <div
@@ -14,11 +15,11 @@ export const GridReview = ({ scrollable = false }: GridReviewProps) => {
         scrollable ? 'grid-review-scroll' : ''
       }`}
     >
-      <ReviewComponent />
-      <ReviewComponent />
-      <ReviewComponent />
-      <ReviewComponent />
-      <ReviewComponent />
+      <ReviewComponent deletable={deletable} />
+      <ReviewComponent deletable={deletable} />
+      <ReviewComponent deletable={deletable} />
+      <ReviewComponent deletable={deletable} />
+      <ReviewComponent deletable={deletable} />
       
     </div>
   )

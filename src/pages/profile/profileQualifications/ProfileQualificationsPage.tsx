@@ -5,7 +5,7 @@ export const ProfileQualificationsPage = () => {
   return (
     
     <div className='profile-container-items'>
-      <GridReview />
+      <GridReview deletable />
     </div>
   )
 }
