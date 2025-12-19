@@ -8,6 +8,7 @@ import { ProfileTripsPage } from '../../pages/profile/profileTrips/ProfileTripsP
 import { ProfileQualificationsPage } from '../../pages/profile/profileQualifications/ProfileQualificationsPage'
 import { ProfileInfoPage } from '../../pages/profile/profileInfo/ProfileInfoPage'
 import { ErrorPage } from '../../pages/error/ErrorPage'
+import { LoginPage } from '../../pages/login/LoginPage'
 
 export const PrincipalRoutes = () => {
 
@@ -15,7 +16,7 @@ export const PrincipalRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/auth" element={<AuthLayout />}>
-          {/* <Route path="login" element={<LoginPage />}/> */}
+          <Route path="login" element={<LoginPage />}/>
         </Route>
 
         <Route path="/" element={<MainLayout />}>
