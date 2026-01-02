@@ -1,20 +1,20 @@
 import { DivisionComponent } from '../../components/division-component/DivisionComponent'
-import { FormPassenger } from '../../components/form-passenger/FormPassenger'
-import { GridComponent } from '../../components/grid/GridComponent'
+import { FormDriver } from '../../components/form-driver/FormDriver'
+import { GridTrips } from '../../components/grid-trips/GridTrips'
 import { TitleComponent } from '../../components/title-component/TitleComponent'
-import './Home.css'
+import './HomeDriverPage.css'
 
-export const Home = () => {
+export const HomeDriverPage = () => {
   return (
     <div className='main-layout'>
         <div className='home-container-items'>
-          <TitleComponent text='Take a Trip' />
-          <FormPassenger />
+          <TitleComponent text='Trips to take' />
+          <FormDriver />
         </div>
         <DivisionComponent />
         <div className='home-container-items'>
-          <TitleComponent text = 'Result' />
-          <GridComponent />
+          <TitleComponent text = 'Results' />
+          <GridTrips showRating={false} />
         </div> 
     </div>
   )

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { MainLayout } from '../../layouts/main/MainLayout'
-import { Home } from '../../pages/home/Home'
+import { HomePassengerPage } from '../../pages/home-passenger/HomePassengerPage'
 import { AuthLayout } from '../../layouts/auth/AuthLayout'
 import { ConfirmationTripPage } from '../../pages/confirmation-trip/ConfirmationTripPage'
 import { ProfileLayout } from '../../layouts/Profile/ProfileLayout'
@@ -9,6 +9,7 @@ import { ProfileQualificationsPage } from '../../pages/profile/profileQualificat
 import { ProfileInfoPage } from '../../pages/profile/profileInfo/ProfileInfoPage'
 import { ErrorPage } from '../../pages/error/ErrorPage'
 import { LoginPage } from '../../pages/login/LoginPage'
+import { HomeDriverPage } from '../../pages/home-driver/HomeDriverPage'
 
 export const PrincipalRoutes = () => {
 
@@ -20,15 +21,25 @@ export const PrincipalRoutes = () => {
         </Route>
 
         <Route path="/" element={<MainLayout />}>
-          <Route path="home-passenger" element={<Home />} />
+          {/*
+            Routes Passenger
+          */
+          }
+          <Route path="home-passenger" element={<HomePassengerPage />} />
           <Route path="confirmation-trip" element={<ConfirmationTripPage />} />
-          <Route path="home-driver" element={<Home />} />
 
           <Route path="profile-passenger" element={<ProfileLayout />}>
             <Route path="info" element={<ProfileInfoPage />} />
             <Route path="trips" element={<ProfileTripsPage />} />
             <Route path="qualifications" element={<ProfileQualificationsPage />} />
           </Route>
+
+          {/*
+          Routes driver
+          */}
+          <Route path="home-driver" element={<HomeDriverPage />} />
+
+          
           
           <Route path = "*" element = { <ErrorPage /> } />
         </Route>
