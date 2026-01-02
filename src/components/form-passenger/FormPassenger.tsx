@@ -1,5 +1,4 @@
 import { ButtonComponent } from "../button-component/ButtonComponent"
-import { DivisionComponent } from "../division-component/DivisionComponent"
 import './FormPassenger.css'
 
 export const FormPassenger = () => {
