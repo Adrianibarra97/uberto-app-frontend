@@ -12,6 +12,9 @@ export const GridTrips = ({showRating}: GridTripsProps) => {
       <TripComponent showRating={showRating} />
       <TripComponent showRating={showRating} />
       <TripComponent showRating={showRating} />
+      <TripComponent showRating={showRating} />
+      <TripComponent showRating={showRating} />
+      <TripComponent showRating={showRating} />
     </div>
   )
 }
