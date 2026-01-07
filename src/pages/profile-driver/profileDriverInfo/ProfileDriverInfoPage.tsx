@@ -45,32 +45,32 @@ export const ProfileDriverInfoPage = () => {
       <h4 className="title-driver-profile">Premium Driver</h4>
       <form className="form-container-driver-profile">
         <div className="form-item-driver-profile">
-          <label htmlFor="Name">Name</label>
+          <label htmlFor="Licence Plate">Licence Plate</label>
           <input 
             type="text" 
-            id="Name" 
-            name="Name"
-            value="Ivan"
+            id="Licence Plate" 
+            name="Licence Plate"
+            value="AC 822 WC"
             required
           />
         </div>
         <div className="form-item-driver-profile" >
-          <label htmlFor="Surname">Surname</label>
+          <label htmlFor="Brand">Brand</label>
           <input 
             type="text"
-            id="Surname" 
-            name="Surname"
-            value="Depineda"
+            id="Brand" 
+            name="Brand"
+            value="Fiat Cronos"
             required
           />
         </div>
         <div className="form-item-driver-profile" >
-          <label htmlFor="Base Price">Base Price</label>
+          <label htmlFor="Model">Model</label>
           <input 
-            type="number"
-            id="Base Price" 
-            name="Base Price"
-            value="13000"
+            type="text"
+            id="Model" 
+            name="Model"
+            value="2018"
             required
           />
         </div>
