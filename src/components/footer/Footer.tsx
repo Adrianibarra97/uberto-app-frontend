@@ -1,5 +1,36 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
+import { FaArrowRightFromBracket, FaCircleUser, FaHouse } from 'react-icons/fa6'
 
-export const Footer = () => (
-  <footer>Footer</footer>
-)
+interface FooterProps {
+  userType: 'passenger' | 'driver'
+}
+// Voy a tener que hacer el router dinámico basado en el tipo de usuario que haya logueado. 
+export const Footer = ({userType}: FooterProps) => {
+  const homeRoute = userType == 'passenger' ? '/home-passenger' : '/home-driver'
+  const profileRoute = userType == 'passenger' ? '/profile-passenger/info' : '/profile-driver/info'
+  
+  return (
+    <footer className='footer'>
+      <nav>
+        <ul>
+          <li>
+            <Link to={homeRoute} aria-label="Home">
+              <FaHouse className='footer-icon'/>
+            </Link>
+          </li>
+          <li>
+            <Link to={profileRoute} aria-label="Profile">
+              <FaCircleUser className='footer-icon'/>
+            </Link>
+          </li>
+          <li>
+            <Link to="/auth/login" aria-label="Login">
+              <FaArrowRightFromBracket className='footer-icon'/>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  )
+}

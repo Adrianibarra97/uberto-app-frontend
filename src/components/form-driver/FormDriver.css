@@ -1,0 +1,41 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 90%;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20%;
+    width: 100%;
+    color: #4702b6;
+    overflow: hidden;
+}
+
+.form-item label {
+    height: 50%;
+    width: 100%;
+    padding: 0.2em 0 0.2em 0.2em;
+    overflow: hidden;
+}
+
+.form-item input {
+    height: 50%;
+    width: 90%;
+    border-radius: 0.2em;
+    border: 1px solid #bdbdbd;
+    color: #4702b6;
+    justify-content: center;
+    text-align: center;
+    outline: none;
+    box-shadow: none;
+    overflow: hidden;
+    font-size: 1.1em;
+}
+
+
+

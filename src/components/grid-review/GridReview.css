@@ -1,0 +1,31 @@
+.grid-review-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    padding: 1em 0em;
+    gap: 0.5em;
+    overflow-y: scroll;
+}
+
+.grid-review-scroll {
+    height: 42%;
+    overflow-y: auto;
+}
+
+@media screen and (min-width: 768px) {
+
+    .grid-review-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+
+    .grid-review-container {
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+}

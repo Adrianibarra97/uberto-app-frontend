@@ -1,0 +1,72 @@
+.card-review {
+    display: flex;
+    flex-direction: column;
+    height: 15em;
+    width: 17em;
+    border-radius: 1em;
+    box-shadow: 0 0 6px rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+.header-review-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5em;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+}
+
+.comment-container {
+    height: 70%;
+    width: 100%;
+    padding: 0.8em;
+}
+
+.comment-text {
+    font-size: 0.9em;
+}
+
+.figure-review-container {
+    justify-content: center;
+    width: 20%;
+    height:100%;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0; /* No debe encogerse o reducir su tamaño*/
+}
+
+.review_card_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.info-review-container {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 100%;
+    justify-content: center;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.review-name{
+    font-weight: bold;
+}
+
+.review-date {
+    color: grey;
+}
+
+.score-review-container {
+    display: flex;
+    height: 100%;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
