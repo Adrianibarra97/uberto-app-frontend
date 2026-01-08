@@ -8,7 +8,7 @@ interface FooterProps {
 // Voy a tener que hacer el router dinámico basado en el tipo de usuario que haya logueado. 
 export const Footer = ({userType}: FooterProps) => {
   const homeRoute = userType == 'passenger' ? '/home-passenger' : '/home-driver'
-  const profileRoute = userType == 'passenger' ? '/profile-passenger' : '/profile-driver'
+  const profileRoute = userType == 'passenger' ? '/profile-passenger/info' : '/profile-driver/info'
   
   return (
     <footer className='footer'>
@@ -25,7 +25,7 @@ export const Footer = ({userType}: FooterProps) => {
             </Link>
           </li>
           <li>
-            <Link to="/login" aria-label="Login">
+            <Link to="/auth/login" aria-label="Login">
               <FaArrowRightFromBracket className='footer-icon'/>
             </Link>
           </li>

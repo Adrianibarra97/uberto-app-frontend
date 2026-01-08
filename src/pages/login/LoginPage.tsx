@@ -1,7 +1,14 @@
 
+import { useNavigate } from 'react-router-dom'
 import './LoginPage.css'
 
 export const LoginPage = () => {
+  const navigate = useNavigate()
+
+  const navigateToHome = () => {
+    return navigate('/home-driver')
+  }
+
   return (
     <div className='login-container'>
       <h1 className='login-title'>Uberto</h1>
@@ -27,7 +34,7 @@ export const LoginPage = () => {
           />
         </div>
         <div className="login-button-container">
-          <button className="login-button">Log On</button>
+          <button className="login-button" onClick={ () => navigateToHome() }>Log On</button>
         </div>
       </form>
     </div>

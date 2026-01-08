@@ -24,11 +24,9 @@ export const PrincipalRoutes = () => {
         </Route>
 
         <Route path="/" element={<MainLayout />}>
-          {/*
-            Routes Passenger
-          */
-          }
           <Route path="home-passenger" element={<HomePassengerPage />} />
+          <Route path="home-driver" element={<HomeDriverPage />} />
+
           <Route path="confirmation-trip" element={<ConfirmationTripPage />} />
 
           <Route path="profile-passenger" element={<ProfileLayout/>}>
@@ -36,11 +34,6 @@ export const PrincipalRoutes = () => {
             <Route path="trips" element={<ProfileTripsPage />} />
             <Route path="qualifications" element={<ProfileQualificationsPage/>} />
           </Route>
-
-          {/*
-          Routes driver
-          */}
-          <Route path="home-driver" element={<HomeDriverPage />} />
 
           <Route path="profile-driver" element={<ProfileLayout/>}>
             <Route path="info" element={<ProfileDriverInfoPage />} />
