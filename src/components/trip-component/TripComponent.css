@@ -1,0 +1,110 @@
+.card-trip-container {
+    display: flex;
+    flex-direction: column;
+    height: 13em;
+    width: 19em;
+    border-radius: 1em;
+    box-shadow: 0 0 6px rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+.trip-header-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 3.5em;
+    background-color: rgb(71, 2, 182);
+}
+
+.trip-passengers {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 60%;
+    height: 100%;
+    color: white;
+}
+
+.trip-title {
+    width: 100%;
+    height: 50%;
+    font-size: 1em;
+}
+
+.passengers-count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    gap: 0.4em;
+}
+
+.passengers-count i {
+    font-size: 0.82em;
+}
+
+.figure-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  height: 3em;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.card_image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trip-middle-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0.4em 0;
+    justify-content: space-evenly; 
+}
+
+.middle-information {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0em 0.5em 0em 0.5em;
+    font-size: 0.9em;
+}
+
+.middle-information-attribute{
+    font-weight: bold;
+}
+
+.middle-information-value {
+    color: grey;
+}
+
+.trip-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4em 0;
+}
+
+.trip-button {
+    display: flex;
+    height: 1.5em;
+    width: 15em;
+    align-items: center;
+    justify-content: center;
+    background-color: #5f24be;
+    border-radius: 0.3em;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}

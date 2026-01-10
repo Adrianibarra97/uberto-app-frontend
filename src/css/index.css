@@ -1,6 +1,6 @@
 :root {
   --header-color: #ffffff;
-  --main-color: #F1F8E8;
+  --main-color: grey;
   --footer-color: #55AD9B;
   --primary-color: #95D2B3;
   --secondary-color: #D8EFD3;
@@ -34,4 +34,9 @@
 
 .scroll--style::-webkit-scrollbar-thumb {
 	background-color: var(--footer-color);
+}
+
+.main-layout {
+  height: 86vh;
+  width: 100vw;
 }
