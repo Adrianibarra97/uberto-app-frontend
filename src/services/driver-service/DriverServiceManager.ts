@@ -8,7 +8,7 @@ class DriverServiceManager {
 	private static instance: DriverServiceInter
 	private static useStub: boolean = true
 
-	public static getIntance(): DriverServiceInter {
+	public static getInstance(): DriverServiceInter {
 		if(!DriverServiceManager.instance) {
 			DriverServiceManager.instance = this.useStub ? new DriverServiceStub() : new DriverService()
 		}

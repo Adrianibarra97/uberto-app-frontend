@@ -1,8 +1,14 @@
+import { AuthProvider } from "./context/AuthContext"
+import { UserProvider } from "./context/UserContext"
 import { PrincipalRoutes } from "./routes/router/PrincipalRoutes"
 
 function App() {
   return (
-    <PrincipalRoutes />
+      <AuthProvider>
+        <UserProvider>
+          <PrincipalRoutes />
+        </UserProvider>
+      </AuthProvider>
   )
 }
 

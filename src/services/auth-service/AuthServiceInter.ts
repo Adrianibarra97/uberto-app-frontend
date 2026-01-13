@@ -1,10 +1,10 @@
-import { AuthCredentialsLoginDTO } from '../../domain/User'
+import type { AuthCredentialsLoginDTO } from '../../domain/User'
 import { DRIVER_TYPE, PASSENGER_TYPE, USER_ID_TOKEN } from '../config'
 
 
 export abstract class AuthServiceInter {
 
-	public userType: string = ''
+	public userType: string = 'DRIVER'
 	
 	login(authCredentialsLoginDTO: AuthCredentialsLoginDTO): void {
 		console.log(authCredentialsLoginDTO)

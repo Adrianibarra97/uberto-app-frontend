@@ -1,15 +1,15 @@
-import { AuthService } from "./AuthService"
-import { AuthServiceInter } from "./AuthServiceInter"
-import { AuthServiceStub } from "./AuthServiceStub"
+import { AuthService } from './AuthService'
+import { AuthServiceInter } from './AuthServiceInter'
+import { AuthServiceStub } from './AuthServiceStub'
+import { AUTH_SERVICE_USE_STUB } from '../config'
 
 class AuthServiceManager {
 
 	private static instance: AuthServiceInter
-	private static useStub: boolean = true
 
-	public static getIntance(): AuthServiceInter {
+	public static getInstance(): AuthServiceInter {
 		if(!AuthServiceManager.instance) {
-			AuthServiceManager.instance = this.useStub ? new AuthServiceStub() : new AuthService()
+			AuthServiceManager.instance = AUTH_SERVICE_USE_STUB ? new AuthServiceStub() : new AuthService()
 		}
 		return AuthServiceManager.instance
 	}
