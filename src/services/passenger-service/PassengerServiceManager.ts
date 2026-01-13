@@ -8,7 +8,7 @@ class PassengerServiceManager {
 	private static instance: PassengerServiceInter
 	private static useStub: boolean = true
 
-	public static getIntance(): PassengerServiceInter {
+	public static getInstance(): PassengerServiceInter {
 		if(!PassengerServiceManager.instance) {
 			PassengerServiceManager.instance = this.useStub ? new PassengerServiceStub() : new PassengerService()
 		}

@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from 'react-router-dom'
+import AuthServiceManager from '../../services/auth-service/AuthServiceManager'
 
 export const ProtectedRoutes = () => {
 
-  const isAuthorized: boolean = true
+  const isAuthorized: boolean = AuthServiceManager.getInstance().isAuthorized()
 
   if(isAuthorized) {
     return <Outlet />
