@@ -5,3 +5,4 @@ export const USER_ID_TOKEN = "authCredentialsID"
 export const USER_TYPE_TOKEN = "typeOfUser"
 export const AUTH_SERVICE_USE_STUB: boolean = true
 export const TRIP_SERVICE_USE_STUB: boolean = true
+export const PASSENGER_SERVICE_USE_STUB: boolean = true

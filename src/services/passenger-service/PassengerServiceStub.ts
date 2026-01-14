@@ -1,9 +1,9 @@
-import { PassengerServiceInter } from "./PassengerServiceInter";
+import type { PassengerServiceInter } from "./PassengerServiceInter";
 
-export class PassengerServiceStub extends PassengerServiceInter {
+export class PassengerServiceStub implements PassengerServiceInter {
 
-	constructor() {
-		super()
+	getOneById(userId: number) {
+		throw new Error("Method not implemented.");
 	}
 
 }
