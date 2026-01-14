@@ -7,6 +7,7 @@ export type TripJSON = {
 }
 
 export class Trip {
+
     constructor (
         public id: number = -1,
         public origin: string = '',
@@ -21,16 +22,13 @@ export class Trip {
         )
     }
 
-    static toJSON(): TripJSON {
+    toJSON(): TripJSON {
         return {
             id: this.id,
             origin: this.origin,
             destination: this.destination,
             date: this.date,
             amountOfPassengers: this.amountOfPassengers
-
         }
     }
-
-
 }

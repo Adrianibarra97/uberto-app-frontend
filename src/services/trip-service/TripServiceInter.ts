@@ -11,4 +11,8 @@ export abstract class TripServiceInter {
     update(passenger: Trip): Promise<void>
 
     delete(id: number): Promise<void>
+
+    getCompletedTrips(userId: number): Trip[] {
+    return [new Trip(), new Trip()]
+  }
 }
