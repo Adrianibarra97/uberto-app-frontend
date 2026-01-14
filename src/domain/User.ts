@@ -15,12 +15,19 @@ export type ValidAuthCredentialsDTO = {
 
 export abstract class User {
 
+	constructor() { }
 }
 
 export class Passenger extends User {
 
+	constructor() {
+		super()
+	}
 }
 
 export class Driver extends User {
 	
+	constructor() {
+		super()
+	}
 }
