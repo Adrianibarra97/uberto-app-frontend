@@ -1,7 +1,60 @@
+import { TripSearchValues } from "../../domain/TripSearchValues"
 import { ButtonComponent } from "../button-component/ButtonComponent"
 import './FormPassenger.css'
 
-export const FormPassenger = () => {
+interface FormPassengerProps {
+  values: TripSearchValues
+  onChange: (values: TripSearchValues) => void
+  onSearch: () => void
+}
+
+export const FormPassenger = ({
+  values,
+  onChange,
+  onSearch
+
+}: FormPassengerProps) => {
+
+  const onChangeOrigin = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(new TripSearchValues(
+      e.target.value,
+      values.destination,
+      values.date,
+      values.amountOfPassengers
+    ))
+  }
+
+  const onChangeDestination = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(new TripSearchValues(
+      values.origin,
+      e.target.value,
+      values.date,
+      values.amountOfPassengers
+    ))
+  }
+
+  const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(new TripSearchValues(
+      values.origin,
+      values.destination,
+      e.target.value,
+      values.amountOfPassengers
+    ))
+  }
+
+  const onChangePassengers = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(new TripSearchValues(
+      values.origin,
+      values.destination,
+      values.date,
+      Number(e.target.value)
+    ))
+  }
+
+  const handleSearchClick = (e: React.FormEvent) => {
+    e.preventDefault() // evita submit automático . Preguntar nuevamente a Adri
+    onSearch()
+  }
   
   return (
     <form className="form-container">
@@ -11,7 +64,8 @@ export const FormPassenger = () => {
           type="text"
           id="Origin" 
           name="Origin"
-          value="Blanco Encalada 4650"
+          value={values.origin}
+          onChange={onChangeOrigin}
           required
         />
       </div>
@@ -21,7 +75,8 @@ export const FormPassenger = () => {
           type="text"
           id="Destination" 
           name="Destination"
-          value="Lorenzini 2190"
+          value={values.destination}
+          onChange={onChangeDestination}
           required
         />
       </div>
@@ -31,6 +86,8 @@ export const FormPassenger = () => {
           type="datetime-local" 
           id="DateTime" 
           name="DateTime"
+          value={values.date}
+          onChange={onChangeDate}
           required
         />
       </div>
@@ -40,11 +97,17 @@ export const FormPassenger = () => {
           type="Number"
           id="AmountOfPassengers" 
           name="AmountOfPassengers"
+          value={values.amountOfPassengers}
+          onChange={onChangePassengers}
+          min={1}
           required
         />
       </div>
       <div className="form-item">
-          <ButtonComponent />
+          <ButtonComponent
+            type="button"
+            onClick={handleSearchClick}
+          />
       </div>
     </form>
   )
