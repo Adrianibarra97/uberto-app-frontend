@@ -1,18 +1,17 @@
 import type { Trip } from "../../domain/Trip";
 
-export abstract class TripServiceInter {
+export interface TripServiceInter {
 
     getAll(): Promise<Trip[]>
 
     getOneById(id: number): Promise<Trip>
 
-    create(passenger: Trip): Promise<void>
+    create(trip: Trip): Promise<void>
 
-    update(passenger: Trip): Promise<void>
+    update(trip: Trip): Promise<void>
 
     delete(id: number): Promise<void>
 
-    getCompletedTrips(userId: number): Trip[] {
-    return [new Trip(), new Trip()]
-  }
+    getCompletedTrips(userId: number): [Trip, Trip]
+  
 }
