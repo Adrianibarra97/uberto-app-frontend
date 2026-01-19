@@ -3,18 +3,18 @@ import { DivisionComponent } from '../../components/division-component/DivisionC
 import { FormPassenger } from '../../components/form-passenger/FormPassenger'
 import { GridComponent } from '../../components/grid/GridComponent'
 import { TitleComponent } from '../../components/title-component/TitleComponent'
-import { TripSearchValues } from '../../domain/TripSearchValues'
 import './HomePassengerPage.css'
 import type { Driver } from '../../domain/User'
 import DriverServiceManager from '../../services/driver-service/DriverServiceManager'
+import type { TripSearchValuesJSON } from '../../domain/Trip'
 
 export const HomePassengerPage = () => {
 
   //Lo que el usuario escribe en el formulario. 
-  const [searchForm, setSearchForm] = useState(new TripSearchValues('', '', '', 0));
+  const [searchForm, setSearchForm] = useState<TripSearchValuesJSON>({origin: '', destination: '', date: '', amountOfPassengers: 0});
 
   //Lo que se usa para buscar. Se setea cuando el usuario hace click en buscar (el boton setea el activeSearch)
-  const [activeSearch, setActiveSearch] = useState<TripSearchValues | null>(null);
+  const [activeSearch, setActiveSearch] = useState<TripSearchValuesJSON | null>(null);
 
   const [drivers, setDrivers] = useState<Driver[]>([])
 

@@ -1,10 +1,10 @@
-import { TripSearchValues } from "../../domain/TripSearchValues"
+import type { TripSearchValuesJSON } from "../../domain/Trip"
 import { ButtonComponent } from "../button-component/ButtonComponent"
 import './FormPassenger.css'
 
 interface FormPassengerProps {
-  values: TripSearchValues
-  onChange: (values: TripSearchValues) => void
+  values:   TripSearchValuesJSON  
+  onChange: (values: TripSearchValuesJSON) => void
   onSearch: () => void
 }
 
@@ -16,43 +16,43 @@ export const FormPassenger = ({
 }: FormPassengerProps) => {
 
   const onChangeOrigin = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(new TripSearchValues(
-      e.target.value,
-      values.destination,
-      values.date,
-      values.amountOfPassengers
-    ))
+    onChange({
+      origin: e.target.value,
+      destination: values.destination,
+      date: values.date,
+      amountOfPassengers: values.amountOfPassengers
+    })
   }
 
   const onChangeDestination = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(new TripSearchValues(
-      values.origin,
-      e.target.value,
-      values.date,
-      values.amountOfPassengers
-    ))
+    onChange({
+      origin: values.origin,
+      destination: e.target.value,
+      date: values.date,
+      amountOfPassengers: values.amountOfPassengers
+    })
   }
 
   const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(new TripSearchValues(
-      values.origin,
-      values.destination,
-      e.target.value,
-      values.amountOfPassengers
-    ))
+    onChange({
+      origin: values.origin,
+      destination: values.destination,
+      date: e.target.value,
+      amountOfPassengers: values.amountOfPassengers
+    })
   }
 
   const onChangePassengers = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(new TripSearchValues(
-      values.origin,
-      values.destination,
-      values.date,
-      Number(e.target.value)
-    ))
+    onChange({
+      origin: values.origin,
+      destination: values.destination,
+      date: values.date,
+      amountOfPassengers: Number(e.target.value)
+    })
   }
 
   const handleSearchClick = (e: React.FormEvent) => {
-    e.preventDefault() // evita submit automático . Preguntar nuevamente a Adri
+    e.preventDefault()
     onSearch()
   }
   

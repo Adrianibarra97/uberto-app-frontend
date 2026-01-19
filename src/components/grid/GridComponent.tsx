@@ -15,7 +15,7 @@ export const GridComponent = ({drivers}: GridComponentProps) => {
 
       {drivers.map((driver) => (
         <CardComponent
-          key={driver.id}
+          key={driver}
           driver={driver}
         />
       ))}

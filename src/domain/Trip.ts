@@ -1,3 +1,10 @@
+export type TripSearchValuesJSON = {
+    origin: string,
+    destination: string,
+    date: string,
+    amountOfPassengers: number
+}
+
 export type TripJSON = {
     id: number,
     origin: string,
