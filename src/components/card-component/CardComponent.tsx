@@ -1,26 +1,38 @@
 import { FaStar } from 'react-icons/fa6'
+import { Driver } from '../../domain/User'
 import './CardComponent.css'
 
-export const CardComponent = () => {
+interface CardComponentProps {
+  driver: Driver
+}
+
+export const CardComponent = ({ driver }: CardComponentProps) => {
   return (
     <div className='card'>
       <div className='card-header-container'>
-        <p className='p-item'>AC 822 WC</p>
+        <p className='p-item'>{driver.plate}</p>
+
         <div className='rating-container'>
           <FaStar className='rating-item' />
-          <p className='rating-item'>5</p>
-        </div>  
+          <p className='rating-item'>{driver.rating}</p>
+        </div>
       </div>
       <div className='card-middle-container'>
         <div className='midddle-information'>
-          <p className='text-p1'>Ivan de Piñeda</p>
-          <p className='text-p2'>Dodge Charger | 1970</p>
-          <p className='text-p3'>Valor $2500</p>
+          <p className='text-p1'>{driver.name}</p>
+          <p className='text-p2'>
+            {driver.carModel} | {driver.carYear}
+          </p>
+          <p className='text-p3'>Valor ${driver.price}</p>
         </div>
-        <figure className='figure-container'>
-          <img src="src\assets\falcon.png" alt="toreto" className='card_image'/>
-        </figure>
 
+        <figure className='figure-container'>
+          <img
+            src={driver.imageUrl || 'src/assets/falcon.png'}
+            alt={driver.name}
+            className='card_image'
+          />
+        </figure>
       </div>
     </div>
   )
