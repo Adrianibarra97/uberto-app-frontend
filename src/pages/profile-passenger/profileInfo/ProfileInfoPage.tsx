@@ -4,11 +4,9 @@ import "./ProfileInfoPage.css";
 import messiImage from "../../../assets/messi.png";
 import { Passenger, type PassengerJSON } from "../../../domain/User";
 import PassengerServiceManager from "../../../services/passenger-service/PassengerServiceManager";
-import { useUser } from "../../../context/UserContext";
+import { getUserID } from "../../../services/auth-service/AuthService";
 
 export const ProfileInfoPage = () => {
-
-  const { user } = useUser(); // Obtener el usuario actual del contexto
 
   const [friends, setFriends] = useState([
     { id: 1, img: messiImage },
@@ -37,19 +35,22 @@ export const ProfileInfoPage = () => {
 
   // Cargar datos del pasajero al montar el componente
   useEffect(() => {
-    if (shouldLoadData && user?.id) { // Verifica: ¿debo cargar? ¿existe user?.id?
-      loadPassengerData();
-      setShouldLoadData(false); // Evita cargar infinitas veces
-    }
-  }, [shouldLoadData, user?.id]);
+    const loadPassengerData = async () => {
+      const userId = getUserID(); //Obtiene el ID directamente del LocalStorage
+      
+      if (userId <= 0) return;
+      
+      const result = await PassengerServiceManager
+        .getInstance()
+        .getOneById(userId);
+      setPassengerForm(result);
+    };
 
-  const loadPassengerData = async () => {
-    if (!user?.id) return;
-    const result = await PassengerServiceManager
-      .getInstance()
-      .getOneById(user.id);
-    setPassengerForm(result);  // Se rellena el formulario con los datos
-  };
+    if (shouldLoadData) {
+      loadPassengerData();
+      setShouldLoadData(false);
+    }
+  }, [shouldLoadData]);
 
   // Actualizar un campo del formulario
   const handleInputChange = (field: keyof PassengerJSON, value: string | number) => {
