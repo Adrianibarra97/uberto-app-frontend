@@ -17,13 +17,15 @@ export type UserJSON = {
 	id: number;
 	name: string;
 	surname: string;
+	image: string;
 }
 
 export type PassengerJSON = {
 	id: number,
 	name: string,
 	surname: string,
-	telephone: string
+	telephone: string,
+	image: string
 }
 export abstract class User {
 
@@ -31,13 +33,15 @@ export abstract class User {
 		public id: number, 
 		public name:string,
 		public surname:string,
+		public image: string
 	) {}
 	
 	toJSON(): UserJSON {
 		return {
 			id: this.id,
 			name: this.name,
-			surname: this.surname
+			surname: this.surname,
+			image: this.image
 		}
 	}
 }
@@ -48,12 +52,14 @@ export class Passenger extends User {
 		id: number = -1,
 		name: string = '', 
 		surname: string = '', 
-		public telephone: string = ''
+		public telephone: string = '',
+		image: string = ''
 	) {
 		super(
 			id,
 			name, 
-			surname
+			surname,
+			image
 		);
 	}
 
@@ -66,7 +72,7 @@ export class Passenger extends User {
 
 	static fromJSON(passengerJSON: PassengerJSON): Passenger {
 			return new Passenger (passengerJSON.id,
-				passengerJSON.name, passengerJSON.surname, passengerJSON.telephone
+				passengerJSON.name, passengerJSON.surname, passengerJSON.telephone, passengerJSON.image
 			)
 		}
 
@@ -75,7 +81,7 @@ export class Passenger extends User {
 
 export class Driver extends User {
 	
-	constructor(id: number, name: string, surname: string) {
-		super(id, name, surname)
+	constructor(id: number, name: string, surname: string, image: string = '') {
+		super(id, name, surname, image)
 	}
 }

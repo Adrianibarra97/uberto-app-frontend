@@ -7,32 +7,38 @@ export class PassengerServiceStub implements PassengerServiceInter {
 			{"id": 0,
 			 "name": "John",
 			 "surname": "Doe",
-			 "telephone": "123456789"
+			 "telephone": "123456789",
+			 "image": "/messi.png"
 			},
 			{"id": 1,
 			 "name": "Jane",
 			 "surname": "Smith",
-			 "telephone": "987654321"
+			 "telephone": "987654321",
+			 "image": "/messi.png"
 			},
 			{"id": 2,
 			 "name": "Lucas",
 			 "surname": "Rodriguez",
-			 "telephone": "123441678"
+			 "telephone": "123441678",
+			 "image": "/messi.png"
 			},
 			{"id": 3,
 			 "name": "Maria",
 			 "surname": "Garcia",
-			 "telephone": "987654123"
+			 "telephone": "987654123",
+			 "image": "/messi.png"
 			},
 			{"id": 5,
 			 "name": "Adrian",
 			 "surname": "Martinez",
-			 "telephone": "555123456"
+			 "telephone": "555123456",
+			 "image": "/messi.png"
 			},
 			{"id": 6,
 			 "name": "Carolina",
 			 "surname": "López",
-			 "telephone": "555987654"
+			 "telephone": "555987654",
+			 "image": "/messi.png"
 			}
 		]
 	

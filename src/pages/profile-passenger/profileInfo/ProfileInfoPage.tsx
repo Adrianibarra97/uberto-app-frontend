@@ -27,7 +27,8 @@ export const ProfileInfoPage = () => {
     id: 0,
     name: '',
     surname: '',
-    telephone: ''
+    telephone: '',
+    image: ''
   });
 
   // Estado para disparar la carga de datos
