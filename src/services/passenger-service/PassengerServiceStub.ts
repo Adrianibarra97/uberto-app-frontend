@@ -23,6 +23,16 @@ export class PassengerServiceStub implements PassengerServiceInter {
 			 "name": "Maria",
 			 "surname": "Garcia",
 			 "telephone": "987654123"
+			},
+			{"id": 5,
+			 "name": "Adrian",
+			 "surname": "Martinez",
+			 "telephone": "555123456"
+			},
+			{"id": 6,
+			 "name": "Carolina",
+			 "surname": "López",
+			 "telephone": "555987654"
 			}
 		]
 	
