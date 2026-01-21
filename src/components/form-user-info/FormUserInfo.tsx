@@ -83,6 +83,8 @@ export const FormUserInfo = ({ passenger, onInputChange, onSaveChanges }: FormPa
             step="1"
             value={amountToAdd}
             onChange={(e) => setAmountToAdd(Number(e.target.value))}
+            onFocus={(e) => e.target.select()}
+            placeholder="0"
           />
         </div>
         <div className="profile-button-container">
