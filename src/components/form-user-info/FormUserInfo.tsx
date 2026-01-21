@@ -1,11 +1,11 @@
 import { FaPhone } from "react-icons/fa6"
 import './FormUserInfo.css'
-import { type PassengerInfoJSON } from "../../domain/User"
+import { type PassengerJSON } from "../../domain/User"
 import { useState } from "react"
 
 interface FormPassengerInfoProps {
-  passenger: PassengerInfoJSON;
-  onInputChange: (field: keyof PassengerInfoJSON, value: string | number) => void;
+  passenger: PassengerJSON;
+  onInputChange: (field: keyof PassengerJSON, value: string | number) => void;
   onSaveChanges: () => void;
 }
 

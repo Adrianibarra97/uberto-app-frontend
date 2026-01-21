@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FormUserInfo } from "../../../components/form-user-info/FormUserInfo";
 import "./ProfileInfoPage.css";
 import messiImage from "../../../assets/messi.png";
-import { type PassengerInfoJSON } from "../../../domain/User";
+import { Passenger, type PassengerJSON } from "../../../domain/User";
 import PassengerServiceManager from "../../../services/passenger-service/PassengerServiceManager";
 import { useUser } from "../../../context/UserContext";
 
@@ -25,7 +25,7 @@ export const ProfileInfoPage = () => {
   };
 
   // Estado actual del formulario (lo que el usuario está escribiendo)
-  const [passengerForm, setPassengerForm] = useState<PassengerInfoJSON>({
+  const [passengerForm, setPassengerForm] = useState<PassengerJSON>({
     id: 0,
     name: '',
     surname: '',
@@ -52,7 +52,7 @@ export const ProfileInfoPage = () => {
   };
 
   // Actualizar un campo del formulario
-  const handleInputChange = (field: keyof PassengerInfoJSON, value: string | number) => {
+  const handleInputChange = (field: keyof PassengerJSON, value: string | number) => {
     setPassengerForm({
       ...passengerForm,
       [field]: value
@@ -61,9 +61,10 @@ export const ProfileInfoPage = () => {
 
   // Guardar cambios
   const savePassengerInfo = async () => {
+    const passenger = Passenger.fromJSON(passengerForm);
     await PassengerServiceManager
       .getInstance()
-      .update(passengerForm);
+      .update(passenger);
   };
 
   return (
