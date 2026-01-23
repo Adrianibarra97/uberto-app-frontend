@@ -1,6 +1,6 @@
 import { FaStar } from 'react-icons/fa6'
 import './ReviewComponent.css'
-import messiPhotho from '../../assets/messi.png'
+
 
 interface ReviewComponentProps {
   deletable?: boolean
@@ -13,7 +13,7 @@ export const ReviewComponent = ({ deletable = false }: ReviewComponentProps) => 
        <div className='header-review-container'>
 
           <figure className='figure-review-container'>
-          <img src={messiPhotho} alt="" className='review_card_image'/>
+          <img src='/assets/passengers/leonel-messi.png' alt="" className='review_card_image'/>
           </figure> 
 
         <div className='info-review-container'>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FormUserInfo } from "../../../components/form-user-info/FormUserInfo";
 import "./ProfileInfoPage.css";
-import messiImage from "../../../assets/messi.png";
+import messiImage from "../../../../public/assets/passengers/leonel-messi.png";
 import { Passenger, type PassengerJSON } from "../../../domain/User";
 import PassengerServiceManager from "../../../services/passenger-service/PassengerServiceManager";
 import { getUserID } from "../../../services/auth-service/AuthService";

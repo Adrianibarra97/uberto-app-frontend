@@ -27,6 +27,15 @@ export type PassengerJSON = {
 	telephone: string,
 	image: string
 }
+
+export type DriverJSON = {
+	id: number,
+	name: string,
+	surname: string,
+	image: string,
+	basePrice: number
+}
+
 export abstract class User {
 
 	constructor(
@@ -80,8 +89,27 @@ export class Passenger extends User {
 }
 
 export class Driver extends User {
-	
-	constructor(id: number, name: string, surname: string, image: string = '') {
+
+	constructor(
+		id: number,
+		name: string,
+		surname: string,
+		image: string = '',
+		public basePrice: number = 0
+	) {
 		super(id, name, surname, image)
 	}
+
+	toJSON(): DriverJSON {
+			return {
+				...super.toJSON(),
+				basePrice: this.basePrice
+			}
+		}
+
+	static fromJSON(driverJSON: DriverJSON): Driver {
+			return new Driver (driverJSON.id,
+				driverJSON.name, driverJSON.surname, driverJSON.image, driverJSON.basePrice
+			)
+		}
 }

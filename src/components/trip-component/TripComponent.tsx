@@ -34,7 +34,7 @@ export const TripComponent = ({ trip, showRating = true, onRate }: TripComponent
       <div className='trip-header-container'>
         <div className="trip-passengers">
           {driver && (
-            <h3 className="trip-title">{driver.name}</h3>
+            <h3 className="trip-title">{driver.name} {driver.surname}</h3>
         )}
 
           <div className='passengers-count'>
