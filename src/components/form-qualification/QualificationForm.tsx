@@ -4,7 +4,7 @@ import { Trip } from "../../domain/Trip"
 import QualificationServiceManager from "../../services/qualifications-service/QualificationServiceManager"
 import DriverServiceManager from "../../services/driver-service/DriverServiceManager"
 import { Driver } from "../../domain/User"
-
+import './QualificationForm.css'
 
 interface QualificationFormProps {
   trip: Trip
@@ -38,7 +38,6 @@ export const QualificationForm = ({
   const handleSubmit = async () => {
     if (!description.trim()) return
 
-    //Deshabilitar botones ,evitar doble submit,mostrar feedback visual (“Saving…”, spinner, etc.)
     setLoading(true)
 
     const qualification = new Qualification(
@@ -56,42 +55,67 @@ export const QualificationForm = ({
     onClose()
   }
 
-  if (!driver) {
-    return <div className="modal">Loading...</div>
-  }
-
   return (
-    <div className="modal">
-      <h2>Rate {driver.name}</h2>
+    <div className="modal-overlay">
+      <div className="modal">
 
-      <img
-        src={driver.image}
-        alt={driver.name}
-        className="driver-avatar"
-      />
+        {!driver ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <header className="qualification-header">
+              <h2>Rate {driver.name}</h2>
+              <i
+                className="fa-solid fa-xmark close-icon"
+                onClick={onClose}
+              />
+            </header>
 
-      <textarea
-        placeholder="Description"
-        value={description}
-        onChange={e => setDescription(e.target.value)}
-      />
+            <div className="qualification-body">
+              <img
+                src={driver.image}
+                alt={driver.name}
+                className="driver-avatar"
+              />
 
-      <select
-        value={score}
-        onChange={e => setScore(Number(e.target.value))}
-      >
-        {[1, 2, 3, 4, 5].map(n => (
-          <option key={n} value={n}>
-            {n} stars
-          </option>
-        ))}
-      </select>
+              <textarea
+                placeholder="Tell us about your experience"
+                value={description}
+                onChange={e => setDescription(e.target.value)}
+              />
 
-      <div className="actions">
-        <button onClick={handleSubmit} disabled={loading}>
-          {loading ? 'Saving...' : 'Submit'}
-        </button>
-        <button onClick={onClose}>Cancel</button>
+              <select
+                value={score}
+                onChange={e => setScore(Number(e.target.value))}
+              >
+                {[1, 2, 3, 4, 5].map(n => (
+                  <option key={n} value={n}>
+                    {n} stars
+                  </option>
+                ))}
+              </select>
+            </div>
+            
+            <footer className="qualification-footer">
+              <button
+                className="button-component button-cancel"
+                onClick={onClose}
+                disabled={loading}
+              >
+                Cancel
+              </button>
+
+              <button
+                className="button-component button-submit"
+                onClick={handleSubmit}
+                disabled={loading}
+              >
+                {loading ? 'Saving...' : 'Submit'}
+              </button>
+            </footer>
+          </>
+        )}
+
       </div>
     </div>
   )

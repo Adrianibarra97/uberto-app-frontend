@@ -6,6 +6,7 @@ import './ProfileTripsPage.css'
 import type { Trip } from '../../../domain/Trip'
 import { QualificationForm } from '../../../components/form-qualification/QualificationForm'
 import TripServiceManager from '../../../services/trip-service/TripServiceManager'
+import { Modal } from '../../../components/modal/Modal'
 
 export const ProfileTripsPage = () => {
 
@@ -46,11 +47,14 @@ export const ProfileTripsPage = () => {
       </div>
 
       {selectedTrip && (
-        <QualificationForm
-          trip={selectedTrip}
-          onClose={() => setSelectedTrip(null)}
-        />
+        <Modal onClose={() => setSelectedTrip(null)}>
+          <QualificationForm
+            trip={selectedTrip}
+            onClose={() => setSelectedTrip(null)}
+          />
+        </Modal>
       )}
+
     </div>
   )
 }
