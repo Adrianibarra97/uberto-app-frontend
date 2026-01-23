@@ -57,20 +57,20 @@ export class PassengerServiceStub implements PassengerServiceInter {
 			return passenger
 		}
 	
-		async update(trip: Passenger): Promise<void> {
+		async update(passenger: Passenger): Promise<void> {
 			for (let i = 0; i < this.objects.length; i++) {
-				if (this.objects[i].id === trip.id) {
-					this.objects[i] = trip.toJSON()
+				if (this.objects[i].id === passenger.id) {
+					this.objects[i] = passenger.toJSON()
 				}
 			}
 		}
 	
-		async create(trip: Passenger): Promise<void> {
-			this.objects.push(trip.toJSON())
+		async create(passenger: Passenger): Promise<void> {
+			this.objects.push(passenger.toJSON())
 		}
 	
 		async delete(id: number): Promise<void> {
-			this.objects = this.objects.filter(tripJSON => tripJSON.id !== id)
+			this.objects = this.objects.filter(passengerJSON => passengerJSON.id !== id)
 		}
 	
 
