@@ -30,7 +30,7 @@ export class TripServiceStub implements TripServiceInter {
 			destination: "Av. Callao 1800",
 			date: "2026-01-13 16:00:00",
 			amountOfPassengers: 1,
-			driverId: 1,
+			driverId: 3,
 			amount: 25500,
     		status: "COMPLETED"
 		},
@@ -40,7 +40,7 @@ export class TripServiceStub implements TripServiceInter {
 			destination: "Av. 9 de Julio 2345",
 			date: "2026-01-13 17:00:00",
 			amountOfPassengers: 6,
-			driverId: 3,
+			driverId: 4,
 			amount: 11500,
     		status: "PENDING"
 		}
