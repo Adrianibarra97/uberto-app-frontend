@@ -14,10 +14,11 @@ interface TripComponentProps {
 
 export const TripComponent = ({ trip, showRating = true, onRate }: TripComponentProps) => {
 
-   const [driver, setDriver] = useState<Driver | null>(null)
+  const [driver, setDriver] = useState<Driver | null>(null)
 
   useEffect(() => {
-    const fetchDriver = async () => {
+
+    const loadDriver = async () => {
       const user = await DriverServiceManager
         .getInstance()
         .getOneById(trip.driverId)
@@ -25,9 +26,9 @@ export const TripComponent = ({ trip, showRating = true, onRate }: TripComponent
       setDriver(user as Driver)
     }
 
-    fetchDriver()
-  }, [trip.driverId])
+    loadDriver()
 
+  }, [trip.driverId]) //dependencia si cambia el viaje, cambia el driver
 
   return (
     <div className='card-trip-container'>
@@ -77,7 +78,8 @@ export const TripComponent = ({ trip, showRating = true, onRate }: TripComponent
       {showRating && (<div className='trip-button-container'>
           <button
               className='trip-button'
-              onClick={() => onRate?.(trip)}
+              onClick={() => onRate?.(trip)} //El componente NO abre modales, No maneja estado global, 
+                                            // No califica nada. Solo comunica al padre (profileTripsPage) que se quiere calificar este viaje.
             >
               I want to rate
             </button>
