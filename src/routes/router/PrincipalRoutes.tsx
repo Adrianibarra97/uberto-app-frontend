@@ -15,33 +15,42 @@ import { ProfileDriverQualificationsPage } from '../../pages/profile-driver/prof
 import { ProfileDriverTripsPage } from '../../pages/profile-driver/profileDriverTrips/ProfileDriverTripsPage'
 import { ProtectedRoutes } from '../guards/ProtectedRoutes'
 
-export const PrincipalRoutes = () => {
-
+const PrincipalRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
+
+        {/* AUTH */}
         <Route path="/auth" element={<AuthLayout />}>
-          <Route path="login" element={<LoginPage />}/>
+          <Route path="login" element={<LoginPage />} />
         </Route>
-        <Route element={ <ProtectedRoutes /> }>
-          <Route path="/" element={ <MainLayout /> }>
-            <Route path="home-passenger" element={ <HomePassengerPage /> } />
-            <Route path="home-driver" element={ <HomeDriverPage /> } />
-            <Route path="confirmation-trip" element={ <ConfirmationTripPage /> } />
-            <Route path="profile-passenger" element={ <ProfileLayout/> }>
-              <Route path="info" element={ <ProfileInfoPage /> } />
-              <Route path="trips" element={ <ProfileTripsPage /> } />
-              <Route path="qualifications" element={ <ProfileQualificationsPage/> } />
+
+        {/* PROTECTED */}
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/" element={<MainLayout />}>
+            <Route path="home-passenger" element={<HomePassengerPage />} />
+            <Route path="home-driver" element={<HomeDriverPage />} />
+            <Route path="confirmation-trip" element={<ConfirmationTripPage />} />
+
+            <Route path="profile-passenger" element={<ProfileLayout />}>
+              <Route path="info" element={<ProfileInfoPage />} />
+              <Route path="trips" element={<ProfileTripsPage />} />
+              <Route path="qualifications" element={<ProfileQualificationsPage />} />
             </Route>
-            <Route path="profile-driver" element={ <ProfileLayout/> }>
-              <Route path="info" element={ <ProfileDriverInfoPage /> } />
-              <Route path="trips" element={ <ProfileDriverTripsPage /> } />
-              <Route path="qualifications" element={ <ProfileDriverQualificationsPage /> } />
+
+            <Route path="profile-driver" element={<ProfileLayout />}>
+              <Route path="info" element={<ProfileDriverInfoPage />} />
+              <Route path="trips" element={<ProfileDriverTripsPage />} />
+              <Route path="qualifications" element={<ProfileDriverQualificationsPage />} />
             </Route>
-            <Route path = "*" element = { <ErrorPage /> } />
+
+            <Route path="*" element={<ErrorPage />} />
           </Route>
         </Route>
+
       </Routes>
     </BrowserRouter>
   )
 }
+
+export default PrincipalRoutes

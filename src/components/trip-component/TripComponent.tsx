@@ -73,9 +73,10 @@ export const TripComponent = ({ trip, showRating = true, onRate }: TripComponent
         </div>
       </div>
 
-      {showRating && <DivisionComponent />}
+      {/* showrating = true y el viaje no está calificado entonces aparece el division component */}
+      {showRating && !trip.isRated && <DivisionComponent />}
       
-      {showRating && (<div className='trip-button-container'>
+      {showRating && !trip.isRated && (<div className='trip-button-container'>
           <button
               className='trip-button'
               onClick={() => onRate?.(trip)} //El componente NO abre modales, No maneja estado global, 

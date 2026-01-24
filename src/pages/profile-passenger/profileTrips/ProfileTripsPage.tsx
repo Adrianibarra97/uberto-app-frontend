@@ -10,28 +10,27 @@ import { Modal } from '../../../components/modal/Modal'
 
 export const ProfileTripsPage = () => {
 
-  //vaijes realizados y pendientes
   const [madeTrips, setMadeTrips] = useState<Trip[]>([])
   const [pendingTrips, setPendingTrips] = useState<Trip[]>([])
-
-  //viaje seleccionado para calificar. En caso de que sea null, no se muestra el modal.
   const [selectedTrip, setSelectedTrip] = useState<Trip | null>(null)
 
+  const loadTrips = async () => {
+    const trips = await TripServiceManager.getIntance().getAll()
+    setMadeTrips(trips.filter(trip => trip.isCompleted))
+    setPendingTrips(trips.filter(trip => !trip.isCompleted))
+  }
+
   useEffect(() => {
-    
-    //obtenemos todos los viajes sean del stub o backend. Los separamos en realizados y pendientes y luego actualiza el estado. React-renderiza
-    TripServiceManager.getIntance().getAll().then(trips => {
-      setMadeTrips(trips.filter(trip => trip.isCompleted))
-      setPendingTrips(trips.filter(trip => !trip.isCompleted))
-    })
-    
+    loadTrips()
   }, [])
-  
-  //Evento: calificar un viaje. Cuando el usuario hace click en I want to rate: TripComponent llama onRate(trip), GridTrips propaga el evento, 
-  // ProfileTripsPage recibe el trip. Guarda ese trip en el estado. Esto dispara el modal. 
-  
+
   const handleRate = (trip: Trip) => {
     setSelectedTrip(trip)
+  }
+
+  const handleQualificationCreated = async () => {
+    await loadTrips()
+    setSelectedTrip(null)
   }
 
   return (
@@ -44,7 +43,9 @@ export const ProfileTripsPage = () => {
           onRate={handleRate}
         />
       </div>
+
       <DivisionComponent />
+
       <div className='profile-trips-container'>
         <TitleComponent text="Pending" />
         <GridTrips
@@ -58,10 +59,10 @@ export const ProfileTripsPage = () => {
           <QualificationForm
             trip={selectedTrip}
             onClose={() => setSelectedTrip(null)}
+            onCreated={handleQualificationCreated}
           />
         </Modal>
       )}
-
     </div>
   )
 }

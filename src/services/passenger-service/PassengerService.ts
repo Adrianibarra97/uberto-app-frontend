@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Passenger, type PassengerJSON } from "../../domain/User";
+import { Passenger, type PassengerJSON, type UserJSON } from "../../domain/User";
 import type { PassengerServiceInter } from "./PassengerServiceInter";
 import { URL_BE } from "../config";
 
@@ -29,6 +29,22 @@ export class PassengerService implements PassengerServiceInter  {
 
 	async delete(id: number): Promise<void> {
 		await axios.delete(`${URL_BE}/passenger/delete?idPassenger=${id}`)
+	}
+
+	async getFriends(passengerId: number): Promise<UserJSON[]> {
+		const response = await axios.get(`${URL_BE}/passenger/get-friends?idPassenger=${passengerId}`);
+		return response.data;
+	}
+
+	async addFriend(passengerId: number, friendId: number): Promise<void> {
+		await axios.post(`${URL_BE}/passenger/add-friend`, {
+		passengerId,
+		friendId
+		});
+	}
+
+	async removeFriend(passengerId: number, friendId: number): Promise<void> {
+		await axios.delete(`${URL_BE}/passenger/remove-friend?idPassenger=${passengerId}&idFriend=${friendId}`);
 	}
 
 };

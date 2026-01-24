@@ -21,3 +21,7 @@ export const getUserID = () => {
     const idUsuarioLogueado = localStorage.getItem(USER_ID_TOKEN)
     return idUsuarioLogueado && !isNaN(parseInt(idUsuarioLogueado, 10)) ? parseInt(idUsuarioLogueado, 10) : -1
 }
+
+export const getUserType = (): string => {
+  return localStorage.getItem(USER_TYPE_TOKEN) ?? ''
+}
