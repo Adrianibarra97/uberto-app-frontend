@@ -46,7 +46,8 @@
   min-height: 4.3em;
   width: 100%;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 1em;
   flex-shrink: 0;
 }
 
@@ -82,4 +83,10 @@
 .trash-icon:active {
   transform: scale(0.9);
   box-shadow: 0 2px 4px rgba(71, 2, 182, 0.2);
+}
+
+.friend-name {
+  font-size: 1em;
+  font-weight: bolder;
+  color: #333333;
 }

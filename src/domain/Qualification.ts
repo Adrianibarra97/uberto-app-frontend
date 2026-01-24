@@ -5,6 +5,7 @@ export type QualificationJSON = {
   score: number,
   date: string,
   userId: number,
+  driverId: number
 }
 
 export class Qualification {
@@ -14,7 +15,8 @@ export class Qualification {
     public description: string = '',
     public score: number = 0,
     public date: Date = new Date(),
-    public userId: number = -1
+    public userId: number = -1,
+    public driverId: number = -1 
 
   ) {}
 
@@ -24,7 +26,8 @@ export class Qualification {
       qualificationJSON.description,
       qualificationJSON.score,
       new Date(qualificationJSON.date),
-      qualificationJSON.userId
+      qualificationJSON.userId,
+      qualificationJSON.driverId
     )
   }
 
@@ -34,7 +37,8 @@ export class Qualification {
       description: this.description,
       score: this.score,
       date: this.date.toISOString(),
-      userId: this.userId
+      userId: this.userId,
+      driverId: this.driverId
     }
   }
 

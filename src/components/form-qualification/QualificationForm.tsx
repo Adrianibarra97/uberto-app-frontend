@@ -9,7 +9,7 @@ import './QualificationForm.css'
 interface QualificationFormProps {
   trip: Trip
   onClose: () => void
-  onCreated?: (qualification: Qualification) => void
+  onCreated?: (tripId: number) => void
 }
 
 export const QualificationForm = ({
@@ -51,7 +51,10 @@ export const QualificationForm = ({
     await qualificationService.create(qualification)
 
     setLoading(false)
-    onCreated?.(qualification)
+
+    // 🔔 Avisamos a la page que este viaje fue calificado
+    onCreated?.(trip.id)
+
     onClose()
   }
 
@@ -95,7 +98,7 @@ export const QualificationForm = ({
                 ))}
               </select>
             </div>
-            
+
             <footer className="qualification-footer">
               <button
                 className="button-component button-cancel"

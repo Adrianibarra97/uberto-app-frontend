@@ -34,6 +34,19 @@ export const ProfileTripsPage = () => {
     setSelectedTrip(trip)
   }
 
+
+  // Se ejecuta cuando el form confirma la calificación
+  const handleQualificationCreated = (tripId: number) => {
+  setMadeTrips(prevTrips =>
+    prevTrips.map(trip => {
+      if (trip.id === tripId) {
+        trip.isRated = true
+      }
+      return trip
+    })
+  )
+}
+
   return (
     <div className='profile-container-items'>
       <div className='profile-trips-container'>
@@ -58,6 +71,7 @@ export const ProfileTripsPage = () => {
           <QualificationForm
             trip={selectedTrip}
             onClose={() => setSelectedTrip(null)}
+            onCreated={handleQualificationCreated}
           />
         </Modal>
       )}

@@ -1,10 +1,11 @@
 import axios from "axios";
 import { Qualification, type QualificationJSON } from "../../domain/Qualification";
-import { QualificationServiceInter } from "./QualificationServiceInter";
+
 import { URL_BE } from "../config";
+import type { QualificationServiceInter } from "./QualificationServiceInter";
 
-export class QualificationService extends QualificationServiceInter  {
-
+export class QualificationService implements QualificationServiceInter  {
+	
 	async getAll(): Promise<Qualification[]> {
 		const promise = await axios.get(URL_BE + 'qualification/get-all')
 		return promise['data'].map((qualificationJSON: QualificationJSON) =>{
@@ -31,4 +32,8 @@ export class QualificationService extends QualificationServiceInter  {
 		await axios.delete(`${URL_BE}/qualification/delete?idQualification=${id}`)
 	}
 
-};
+	async getQualificationsByUser(userId: number): Promise<Qualification[]> {
+		const response = await axios.get(`${URL_BE}/qualification/get-by-user?userId=${userId}`)
+		return response.data.map((qualification: QualificationJSON) => Qualification.fromJSON(qualification))
+	}
+}

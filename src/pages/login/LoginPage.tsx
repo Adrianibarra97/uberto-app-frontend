@@ -18,6 +18,8 @@ export const LoginPage = () => {
   const [errorActive, setErrorActive] = useState(false)
   const [userLogin, setUserLogin] = useState({ username: '', password: '' })
 
+  /*Verifica que el usuario haya llenado los campos obligatorios (hasRequiredFields()).
+  Si no, activa un mensaje de error y termina la ejecución (return)*/
   const hasRequiredFields = (): boolean => true // userLogin.username != '' && userLogin.password != ''
 
   const handleUsername = (value: string) => {
@@ -36,45 +38,56 @@ export const LoginPage = () => {
     setUserLogin(authCredentialsLoginDTO)
   }
 
-  const handleUserType = () => {
-    setTimeout(async () => {
-      const userId: number = getUserID()
-      if(userId >= 0) {
-        if(AuthServiceManager.getInstance().isDriver()) {
-          const user: Driver = await DriverServiceManager.getInstance().getOneById(userId)
-          updateUser(user)
-        } else {
-          const user: Passenger = await PassengerServiceManager.getInstance().getOneById(userId)
-          updateUser(user)
-        }
-        updateIsAuthorized(true)
-      } else {
-        updateIsAuthorized(false)
-      }
-    }, 500)
-  }
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if(!hasRequiredFields()) {
+      setErrorActive(true)
+      return
+    }
 
-  const redirectUserTo = () => {
-    setTimeout(async () => {
+    try {
+      setErrorActive(false)
+
+       /* espera a que el login termine
+        Este método guarda en localStorage:
+
+        USER_ID_TOKEN → ID del usuario.
+        USER_TYPE_TOKEN → "DRIVER" o "PASSENGER".
+      */
+      await AuthServiceManager.getInstance().login(userLogin) 
+
+      const userId = getUserID() // Obtiene el ID del usuario desde localStorage
+
+      /*
+        Mira el valor de userType que se guardó en login().
+        Devuelve true si es "DRIVER".
+        Dependiendo de eso:
+        Si es Driver → busca los datos del driver en DriverServiceManager.
+        Si es Passenger → busca los datos del passenger en PassengerServiceManager.
+      */
+      let user
+      if(AuthServiceManager.getInstance().isDriver()) {
+        user = await DriverServiceManager.getInstance().getOneById(userId)
+      } else {
+        user = await PassengerServiceManager.getInstance().getOneById(userId)
+      }
+
+      updateUser(user) // Guarda los datos del usuario logueado en tu UserContext.
+      updateIsAuthorized(true) // Indica que ahora hay un usuario logueado. Esto activa rutas privadas, menús, etc.
+
+      // redirige según tipo
       if(AuthServiceManager.getInstance().isPassenger()) {
         navigate('/home-passenger')
       } else {
         navigate('/home-driver')
       }
-    }, 500)
-  }
 
-  const handleLogin = async (e) => {
-    e.preventDefault()
-    if(hasRequiredFields()) {
-      setErrorActive(false)
-      AuthServiceManager.getInstance().login(userLogin)
-      handleUserType()
-      redirectUserTo()
-    } else {
+    } catch (err) {
+      console.error('Login failed', err)
       setErrorActive(true)
     }
   }
+
 
   useEffect(() => {
     localStorage.clear()

@@ -1,7 +1,7 @@
 import { Qualification, type QualificationJSON } from "../../domain/Qualification";
-import { QualificationServiceInter } from "./QualificationServiceInter";
+import type { QualificationServiceInter } from "./QualificationServiceInter";
 
-export class QualificationServiceStub extends QualificationServiceInter {
+export class QualificationServiceStub implements QualificationServiceInter {
 
 	private objects: Array<QualificationJSON> = [
 				{"id": 0,
@@ -61,4 +61,10 @@ export class QualificationServiceStub extends QualificationServiceInter {
 				this.objects = this.objects.filter(qualificationJSON => qualificationJSON.id !== id)
 			}
 
+			async getQualificationsByUser(userId: number): Promise<Qualification[]> {
+				return this.objects
+					.filter(qualification => qualification.userId === userId)
+					.map(qualification => Qualification.fromJSON(qualification))
+			}
+			
 }

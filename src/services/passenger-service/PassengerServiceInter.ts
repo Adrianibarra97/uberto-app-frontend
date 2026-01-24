@@ -10,4 +10,8 @@ export interface PassengerServiceInter {
   update(passenger: Passenger): Promise<void>
 
   delete(id: number): Promise<void>
+
+  addFriend(passengerId: number, friendId: number): Promise<void>
+
+  removeFriend(passengerId: number, friendId: number): Promise<void>
 }

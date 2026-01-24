@@ -1,6 +1,6 @@
 import { Qualification } from '../../domain/Qualification'
 
-export abstract class QualificationServiceInter {
+export interface QualificationServiceInter {
 
   getAll(): Promise<Qualification[]>
 
@@ -12,8 +12,6 @@ export abstract class QualificationServiceInter {
 
   delete(id: number): Promise<void>
 
-  getQualificationsByUser(userId: number): Qualification[] {
-    return [new Qualification(), new Qualification()]
-  }
+  getQualificationsByUser(userId: number): Promise<Qualification[]>
   
 }

@@ -13,6 +13,7 @@ export type TripJSON = {
     amountOfPassengers: number,
     driverId: number,
     status: 'PENDING' | 'COMPLETED',
+    isRated: boolean,
     amount: number
 }
 
@@ -26,6 +27,7 @@ export class Trip {
         public amountOfPassengers: number = 0,
         public driverId: number = -1,
         public status: 'PENDING' | 'COMPLETED' = 'PENDING',
+        public isRated: boolean = false,
         public amount: number = 0
     ) {}
 
@@ -42,6 +44,7 @@ export class Trip {
              tripJSON.amountOfPassengers,
              tripJSON.driverId,
              tripJSON.status,
+             tripJSON.isRated,
              tripJSON.amount
         )
     }
@@ -55,6 +58,7 @@ export class Trip {
             amountOfPassengers: this.amountOfPassengers,
             driverId: this.driverId,
             status: this.status,
+            isRated: this.isRated,
             amount: this.amount
         }
     }

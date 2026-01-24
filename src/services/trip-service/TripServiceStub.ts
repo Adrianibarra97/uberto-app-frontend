@@ -12,7 +12,8 @@ export class TripServiceStub implements TripServiceInter {
 			amountOfPassengers: 2,
 			driverId: 1,
 			amount: 14500,
-    		status: "COMPLETED"
+    		status: "COMPLETED",
+			isRated: true
     	},
 		{
 			id: 1,
@@ -22,7 +23,8 @@ export class TripServiceStub implements TripServiceInter {
 			amountOfPassengers: 4,
 			driverId: 2,
 			amount: 9800,
-    		status: "PENDING"
+    		status: "PENDING",
+			isRated: false
 		},
 		{
 			id: 2,
@@ -32,7 +34,8 @@ export class TripServiceStub implements TripServiceInter {
 			amountOfPassengers: 1,
 			driverId: 3,
 			amount: 25500,
-    		status: "COMPLETED"
+    		status: "COMPLETED",
+			isRated: false
 		},
 		{
 			id: 3,
@@ -42,7 +45,8 @@ export class TripServiceStub implements TripServiceInter {
 			amountOfPassengers: 6,
 			driverId: 4,
 			amount: 11500,
-    		status: "PENDING"
+    		status: "PENDING",
+			isRated: false
 		}
 	]
 
