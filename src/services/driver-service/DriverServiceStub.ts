@@ -29,7 +29,7 @@ export class DriverServiceStub implements DriverServiceInter {
 			id: 4,
 			name: "María",
 			surname: "López",
-			image: '/assets/drivers/maria.jpg',
+			image: '/assets/drivers/julio.jpg',
 			basePrice: 1600
   		}
 	]
