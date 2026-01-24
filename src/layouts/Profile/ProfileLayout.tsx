@@ -1,5 +1,4 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import messiImage from '../../assets/messi.png'
 import '../Profile/ProfileLayout.css'
 
 export const ProfileLayout = () => {
@@ -9,7 +8,7 @@ export const ProfileLayout = () => {
         <figure className="figure-profile-container">
           <label className="profile-image-wrapper">
             <img
-              src={messiImage}
+              src='/assets/passengers/leonel-messi.png'
               alt="messi"
               className="profile_card_image"
             />

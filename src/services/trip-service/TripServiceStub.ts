@@ -4,29 +4,45 @@ import type { TripServiceInter } from "./TripServiceInter";
 export class TripServiceStub implements TripServiceInter {
 
 	private objects: Array<TripJSON> = [
-		{"id": 0,
-		 "origin": "Blanco Encalada 4650",
-		 "destination": "Monroe 2200",
-		 "date": "13-01-2026",
-		 "amountOfPassengers":2	
+		{
+			id: 0,
+			origin: "Blanco Encalada 4650",
+			destination: "Monroe 2200",
+			date: "2026-01-13 14:00:00",
+			amountOfPassengers: 2,
+			driverId: 1,
+			amount: 14500,
+    		status: "COMPLETED"
+    	},
+		{
+			id: 1,
+			origin: "Av. Cabildo 300",
+			destination: "Crisologo Larralde 1500",
+			date: "2026-01-13 15:30:00",
+			amountOfPassengers: 4,
+			driverId: 2,
+			amount: 9800,
+    		status: "PENDING"
 		},
-		{"id": 1,
-		 "origin": "Av. Cabildo 300",
-		 "destination": "Crisologo Larralde 1500",
-		 "date": "13-01-2026",
-		 "amountOfPassengers":24
+		{
+			id: 2,
+			origin: "Av. Santa Fe 3500",
+			destination: "Av. Callao 1800",
+			date: "2026-01-13 16:00:00",
+			amountOfPassengers: 1,
+			driverId: 3,
+			amount: 25500,
+    		status: "COMPLETED"
 		},
-		{"id": 2,
-		 "origin": "Av. Santa Fe 3500",
-		 "destination": "Av. Callao 1800",
-		 "date": "13-01-2026",
-		 "amountOfPassengers":1	
-		},
-		{"id": 3,
-		 "origin": "Av. Santa Fe 3500",
-		 "destination": "Av. 9 de Julio 2345",
-		 "date": "13-01-2026",
-		 "amountOfPassengers":6	
+		{
+			id: 3,
+			origin: "Av. Santa Fe 3500",
+			destination: "Av. 9 de Julio 2345",
+			date: "2026-01-13 17:00:00",
+			amountOfPassengers: 6,
+			driverId: 4,
+			amount: 11500,
+    		status: "PENDING"
 		}
 	]
 

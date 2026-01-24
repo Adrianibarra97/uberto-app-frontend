@@ -1,13 +1,16 @@
 import { Driver } from "../../domain/User"
 
-export abstract class DriverServiceInter {
+export interface DriverServiceInter {
 
-  getOneById(userId: number): any {
-    console.log('El Driver se logueó correctamente! Id: ', userId)
-  }
+  getAll(): Promise<Driver[]>
 
-  getAvailableDrivers(): Driver[] {
-    console.log('Te re cabio. Llegó')
-    return [new Driver(), new Driver()]
-  }
+  getOneById(id: number): Promise<Driver>
+
+  create(driver: Driver): Promise<void>
+
+  update(driver: Driver): Promise<void>
+
+  delete(id: number): Promise<void>
+
+  getAvailableDrivers(): Driver[]
 }
