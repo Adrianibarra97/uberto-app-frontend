@@ -6,12 +6,11 @@ export interface QualificationServiceInter {
 
   getOneById(id: number): Promise<Qualification>
 
-  create(qualification: Qualification): Promise<void>
+  getQualificationsByUser(userId: number): Promise<Qualification[]>
+
+  create(qualification: Qualification): Promise<Qualification>
 
   update(qualification: Qualification): Promise<void>
-
-  delete(id: number): Promise<void>
-
-  getQualificationsByUser(userId: number): Promise<Qualification[]>
   
+  delete(id: number): Promise<void>
 }

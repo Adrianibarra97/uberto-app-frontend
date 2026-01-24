@@ -3,13 +3,15 @@ import { Qualification } from "../../domain/Qualification"
 import { Trip } from "../../domain/Trip"
 import QualificationServiceManager from "../../services/qualifications-service/QualificationServiceManager"
 import DriverServiceManager from "../../services/driver-service/DriverServiceManager"
+import TripServiceManager from "../../services/trip-service/TripServiceManager"
 import { Driver } from "../../domain/User"
+import { getUserID } from "../../services/auth-service/AuthService"
 import './QualificationForm.css'
 
 interface QualificationFormProps {
   trip: Trip
   onClose: () => void
-  onCreated?: (tripId: number) => void
+  onCreated: () => void
 }
 
 export const QualificationForm = ({
@@ -25,36 +27,42 @@ export const QualificationForm = ({
 
   const qualificationService = QualificationServiceManager.getIntance()
   const driverService = DriverServiceManager.getInstance()
+  const tripService = TripServiceManager.getIntance()
 
   useEffect(() => {
     const loadDriver = async () => {
-      const user = await driverService.getOneById(trip.driverId)
-      setDriver(user as Driver)
+      const driver = await driverService.getOneById(trip.driverId)
+      setDriver(driver as Driver)
     }
 
     loadDriver()
-  }, [trip.driverId, driverService])
+  }, [trip.driverId])
 
   const handleSubmit = async () => {
     if (!description.trim()) return
 
     setLoading(true)
 
+    // 1️⃣ Crear calificación
     const qualification = new Qualification(
       -1,
       description,
       score,
       new Date(),
+      getUserID(),
       trip.driverId
     )
 
     await qualificationService.create(qualification)
 
+    // 2️⃣ Marcar viaje como calificado
+    trip.isRated = true
+    await tripService.update(trip)
+
     setLoading(false)
 
-    // 🔔 Avisamos a la page que este viaje fue calificado
-    onCreated?.(trip.id)
-
+    // 3️⃣ Avisar al padre
+    onCreated()
     onClose()
   }
 
@@ -118,7 +126,6 @@ export const QualificationForm = ({
             </footer>
           </>
         )}
-
       </div>
     </div>
   )

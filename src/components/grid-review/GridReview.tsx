@@ -26,7 +26,7 @@ export const GridReview = ({
         <ReviewComponent
           key={q.id}
           qualification={q}
-          driver={driversMap.get(q.userId)} // mostramos driver según userId (o driverId si se implementa)
+          driver={driversMap.get(q.driverId)} // mostramos driver según userId (o driverId si se implementa)
           deletable={deletable}
           onDelete={onDelete}
         />

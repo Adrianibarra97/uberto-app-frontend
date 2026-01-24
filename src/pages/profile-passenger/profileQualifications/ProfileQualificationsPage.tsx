@@ -11,34 +11,32 @@ export const ProfileQualificationsPage = () => {
   const [qualifications, setQualifications] = useState<Qualification[]>([])
   const [driversMap, setDriversMap] = useState<Map<number, Driver>>(new Map())
 
+  const loadQualifications = async () => {
+    const userId = getUserID()
+
+    const allQualifications =
+      await QualificationServiceManager.getIntance().getAll()
+
+    const userQualifications =
+      allQualifications.filter(q => q.userId === userId)
+
+    setQualifications(userQualifications)
+
+    const allDrivers =
+      await DriverServiceManager.getInstance().getAll()
+
+    const map = new Map<number, Driver>()
+    allDrivers.forEach(driver => map.set(driver.id, driver))
+    setDriversMap(map)
+  }
+
   useEffect(() => {
-    const loadQualifications = async () => {
-      
-      //Obtener todas las calificaciones
-      const allQualifications = await QualificationServiceManager.getIntance().getAll()
-
-      //Filtrar solo las calificaciones del usuario actual
-      const userId = getUserID() // Obtengo el ID del usuario logueado
-      const userQualifications = allQualifications.filter(qualification => qualification.userId === userId)
-
-      setQualifications(userQualifications)
-
-      //Obtener todos los drivers
-      const allDrivers = await DriverServiceManager.getInstance().getAll()
-      const map = new Map<number, Driver>()
-      allDrivers.forEach(driver => map.set(driver.id, driver))
-      setDriversMap(map)
-    }
-
     loadQualifications()
   }, [])
 
-  // Función para borrar una calificación
   const handleDelete = async (id: number) => {
     await QualificationServiceManager.getIntance().delete(id)
-    setQualifications(prev =>
-      prev.filter(qualification => qualification.id !== id)
-    )
+    await loadQualifications() // 👈 importante
   }
 
   return (
