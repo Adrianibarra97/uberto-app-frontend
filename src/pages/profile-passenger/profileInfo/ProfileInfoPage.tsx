@@ -7,7 +7,7 @@ import { getUserID } from "../../../services/auth-service/AuthService";
 
 export const ProfileInfoPage = () => {
 
-  // 🧍 Passenger logueado
+  // Formulario de Passenger
   const [passengerForm, setPassengerForm] = useState<PassengerJSON>({
     id: 0,
     name: "",
@@ -22,23 +22,22 @@ export const ProfileInfoPage = () => {
   // Candidatos a agregar (NO friends)
   const [availableFriends, setAvailableFriends] = useState<PassengerJSON[]>([]);
 
+  // Carga inicial de datos
   useEffect(() => {
     const loadData = async () => {
       const userId = getUserID();
       if (userId < 0) return;
 
-      const service = PassengerServiceManager.getInstance();
-
-      // Passenger logueado
-      const passenger = await service.getOneById(userId);
+      // Obtengo el id del usuario logueado y setea el formulario.
+      const passenger = await PassengerServiceManager.getInstance().getOneById(userId);
       setPassengerForm(passenger.toJSON());
 
       // Friends persistidos
-      const currentFriends = await service.getFriends(userId);
+      const currentFriends = await PassengerServiceManager.getInstance().getFriends(userId);
       setFriends(currentFriends);
 
       // Todos los passengers → candidatos
-      const allPassengers = await service.getAll();
+      const allPassengers = await PassengerServiceManager.getInstance().getAll();
       const friendIds = currentFriends.map(f => f.id);
 
       setAvailableFriends(
@@ -69,9 +68,8 @@ export const ProfileInfoPage = () => {
   const removeFriend = async (friendId: number) => {
     const userId = getUserID();
     if (userId < 0) return;
-
-    const service = PassengerServiceManager.getInstance();
-    await service.removeFriend(userId, friendId);
+    
+    await PassengerServiceManager.getInstance().removeFriend(userId, friendId);
 
     const removed = friends.find(f => f.id === friendId);
     if (!removed) return;
@@ -97,8 +95,6 @@ export const ProfileInfoPage = () => {
 
   return (
     <div className="profile-container-items">
-
-      {/* 🧍 FORM */}
       <FormUserInfo
         passenger={passengerForm}
         onInputChange={handleInputChange}
