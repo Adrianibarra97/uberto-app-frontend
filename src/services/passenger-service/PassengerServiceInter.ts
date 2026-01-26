@@ -1,4 +1,4 @@
-import type { Passenger } from "../../domain/User"
+import type { Passenger, PassengerJSON, UserJSON } from "../../domain/User"
 export interface PassengerServiceInter {
   
   getAll(): Promise<Passenger[]>
@@ -14,4 +14,7 @@ export interface PassengerServiceInter {
   addFriend(passengerId: number, friendId: number): Promise<void>
 
   removeFriend(passengerId: number, friendId: number): Promise<void>
+
+  getFriends(passengerId: number): Promise<PassengerJSON[]>;
+
 }

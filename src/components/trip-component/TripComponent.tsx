@@ -12,10 +12,13 @@ interface TripComponentProps {
   onRate?: (trip: Trip) => void
 }
 
+// Muestra la info del viaje en una card, muestra el boton de calificar si corresponde y no decide nada global. 
+
 export const TripComponent = ({ trip, showRating = true, onRate }: TripComponentProps) => {
 
   const [driver, setDriver] = useState<Driver | null>(null)
-
+  
+  //Pide su driver y guarda el estado local.
   useEffect(() => {
 
     const loadDriver = async () => {
@@ -76,6 +79,7 @@ export const TripComponent = ({ trip, showRating = true, onRate }: TripComponent
       {/* showrating = true y el viaje no está calificado entonces aparece el division component */}
       {showRating && !trip.isRated && <DivisionComponent />}
       
+      {/*  showrating = true y el viaje no está calificado, aparece el boton para calificar */}
       {showRating && !trip.isRated && (<div className='trip-button-container'>
           <button
               className='trip-button'

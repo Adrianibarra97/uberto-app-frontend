@@ -1,4 +1,4 @@
-import { Passenger, type PassengerJSON, type UserJSON } from "../../domain/User";
+import { Passenger, type PassengerJSON } from "../../domain/User";
 import type { PassengerServiceInter } from "./PassengerServiceInter";
 
 export class PassengerServiceStub implements PassengerServiceInter {
@@ -81,7 +81,7 @@ export class PassengerServiceStub implements PassengerServiceInter {
     this.friendsMap.delete(id);
   }
 
-  async getFriends(passengerId: number): Promise<UserJSON[]> {
+  async getFriends(passengerId: number): Promise<PassengerJSON[]> {
     const friendIds = this.friendsMap.get(passengerId) ?? [];
 
     return this.passengers
@@ -90,6 +90,7 @@ export class PassengerServiceStub implements PassengerServiceInter {
         id: p.id,
         name: p.name,
         surname: p.surname,
+        telephone: p.telephone,
         image: p.image
       }));
   }

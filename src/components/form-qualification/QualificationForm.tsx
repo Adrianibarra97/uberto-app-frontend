@@ -28,7 +28,8 @@ export const QualificationForm = ({
   const qualificationService = QualificationServiceManager.getIntance()
   const driverService = DriverServiceManager.getInstance()
   const tripService = TripServiceManager.getIntance()
-
+  
+  // Se ejecuta cuando: se abre el modal, cambia el viaje. 
   useEffect(() => {
     const loadDriver = async () => {
       const driver = await driverService.getOneById(trip.driverId)
@@ -43,7 +44,7 @@ export const QualificationForm = ({
 
     setLoading(true)
 
-    // 1️⃣ Crear calificación
+    // Crear calificación
     const qualification = new Qualification(
       -1,
       description,
@@ -55,13 +56,13 @@ export const QualificationForm = ({
 
     await qualificationService.create(qualification)
 
-    // 2️⃣ Marcar viaje como calificado
+    // Marcar viaje como calificado
     trip.isRated = true
     await tripService.update(trip)
 
     setLoading(false)
 
-    // 3️⃣ Avisar al padre
+    // Avisar al padre
     onCreated()
     onClose()
   }
